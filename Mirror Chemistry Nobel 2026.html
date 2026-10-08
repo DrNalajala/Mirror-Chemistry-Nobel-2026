@@ -1,0 +1,716 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Mirror Chemistry Nobel 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a lab dossier. Sticky index of topics; each topic is a panel that slides in.
+   Two chirality hues carry all meaning: R = cobalt, S = amber. Gold only for the prize itself. */
+:root{
+  --bg:#F1F4F7; --surface:#FFFFFF; --surface2:#E8EDF2; --ink:#14202B; --muted:#5A6A78; --line:#D5DDE5;
+  --r:#2E58D6; --r-soft:#DCE5FB; --s:#C9741F; --s-soft:#F8E6D2; --gold:#9C7A22; --ok:#2F8A57; --bad:#B8443A;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D1319; --surface:#141C24; --surface2:#1B2530; --ink:#E5ECF2; --muted:#93A3B1; --line:#283543;
+  --r:#7397FF; --r-soft:#1D2A4D; --s:#F0A35A; --s-soft:#3D2A17; --gold:#D8B45C; --ok:#5CC48A; --bad:#E57A6F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1319; --surface:#141C24; --surface2:#1B2530; --ink:#E5ECF2; --muted:#93A3B1; --line:#283543;
+  --r:#7397FF; --r-soft:#1D2A4D; --s:#F0A35A; --s-soft:#3D2A17; --gold:#D8B45C; --ok:#5CC48A; --bad:#E57A6F; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--f-body);margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:24px 64px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.1;margin:0}
+h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.1rem;font-weight:700}
+p{margin:0;max-width:66ch}
+.eyebrow{font:500 .72rem/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.R{color:var(--r);font-weight:600}.S{color:var(--s);font-weight:600}
+a{color:var(--r)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding-block:12px 28px}
+.hero>*{min-width:0}
+.hero-text{display:grid;gap:16px}
+.citation{font-family:var(--f-display);font-size:1.15rem;font-weight:500;border-left:3px solid var(--gold);padding-left:14px;color:var(--ink)}
+.laureates{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lau{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px;display:grid;gap:4px}
+.lau b{font-family:var(--f-display);font-size:1.15rem}
+.lau span{color:var(--muted);font-size:.85rem}
+.lau em{font-style:normal;font-size:.85rem}
+.mirror-stage{background:var(--surface);border:1px solid var(--line);border-radius:20px;position:relative;overflow:hidden}
+#hero{width:100%;height:280px;display:block}
+.stage-cap{display:flex;justify-content:space-between;padding:0 16px 12px;font:500 .78rem var(--f-mono)}
+
+/* tabs */
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);margin-inline:-20px;padding:10px 20px;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 .88rem var(--f-body);padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.tab:hover{border-color:var(--r)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.panel{padding-top:28px;display:grid;gap:22px}
+.panel.enter{animation:enter .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes enter{from{opacity:.25;transform:translateY(14px)}to{opacity:1;transform:none}}
+.lede{font-size:1.06rem;color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid2>*,.grid3>*{min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:grid;gap:10px;align-content:start}
+.figure{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px;overflow-x:auto}
+.figure svg{display:block;width:100%;height:auto;min-width:300px}
+.figcap{font-size:.82rem;color:var(--muted);margin-top:8px}
+.note{font-size:.85rem;color:var(--muted)}
+.pill{display:inline-block;font:500 .72rem var(--f-mono);padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.pill.pos{color:var(--ok);border-color:var(--ok)}.pill.neg{color:var(--bad);border-color:var(--bad)}
+
+/* controls */
+.ctrl{display:grid;gap:4px}
+.ctrl label{display:flex;justify-content:space-between;gap:10px;font-size:.85rem;font-weight:500}
+.ctrl output{font-family:var(--f-mono);color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--r)}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button.b{border:1px solid var(--line);background:var(--surface2);color:var(--ink);font:500 .85rem var(--f-body);padding:8px 12px;border-radius:10px;cursor:pointer}
+button.b:hover{border-color:var(--r)}
+button.b.primary{background:var(--r);color:#fff;border-color:var(--r)}
+select{font:inherit;padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);width:100%}
+.readout{display:flex;flex-wrap:wrap;gap:18px;font-family:var(--f-mono);font-size:.85rem}
+.readout b{display:block;font-size:1.3rem;font-family:var(--f-display)}
+
+/* ee meter */
+.meter{height:18px;border-radius:999px;overflow:hidden;display:flex;border:1px solid var(--line)}
+.meter i{display:block;height:100%;transition:width .25s}
+.meter .mr{background:var(--r)}.meter .ms{background:var(--s)}
+
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 .72rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tablewrap{overflow-x:auto}
+
+/* animated arrows */
+.flow{stroke-dasharray:6 6;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-24}}
+.pulse{animation:pulse 2.4s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes pulse{50%{transform:scale(1.06)}}
+
+#flask{width:100%;height:190px;display:block;border-radius:12px;background:var(--surface2)}
+
+/* timeline */
+.tl{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.tl-item{position:relative;padding:0 0 20px 22px;display:grid;gap:4px}
+.tl-item::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--muted)}
+.tl-item.key::before{background:var(--gold);border-color:var(--gold)}
+.tl-item .yr{font:500 .8rem var(--f-mono);color:var(--muted)}
+.sources li{margin-bottom:6px}
+
+@media (max-width:820px){
+  .hero,.grid2{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr}
+  #hero{height:220px}
+}
+@media (max-width:440px){.laureates{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-text">
+      <div class="eyebrow">Nobel Prize in Chemistry 2026 &middot; announced 7 Oct 2026, Stockholm</div>
+      <h1>Chemistry chose a mirror</h1>
+      <p class="citation">"for the discovery of non-linear effects and autocatalysis in asymmetric organic synthesis"</p>
+      <div class="laureates">
+        <div class="lau"><b>Henri B. Kagan</b><span>Universit&eacute; Paris-Sud (now Paris-Saclay), France &middot; b. 1930</span><em>Showed that catalyst ee and product ee need not be proportional (1986).</em></div>
+        <div class="lau"><b>Kenso Soai</b><span>Tokyo University of Science, Japan</span><em>Found a reaction whose product catalyses its own formation and amplifies its own ee (1995).</em></div>
+      </div>
+    </div>
+    <div class="mirror-stage" aria-label="Animated chiral carbon and its mirror image">
+      <canvas id="hero"></canvas>
+      <div class="stage-cap"><span class="R">(R)-enantiomer</span><span class="eyebrow">mirror plane</span><span class="S">(S)-enantiomer</span></div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Topics">
+    <button class="tab" role="tab" data-p="chiral" aria-selected="true">Chirality primer</button>
+    <button class="tab" role="tab" data-p="kagan" aria-selected="false">Kagan &middot; non-linear effects</button>
+    <button class="tab" role="tab" data-p="soai" aria-selected="false">Soai &middot; autocatalysis</button>
+    <button class="tab" role="tab" data-p="pharma" aria-selected="false">Why pharma cares</button>
+    <button class="tab" role="tab" data-p="planner" aria-selected="false">Ligand-ee planner</button>
+    <button class="tab" role="tab" data-p="time" aria-selected="false">Timeline &amp; sources</button>
+  </nav>
+
+  <!-- CHIRALITY -->
+  <section class="panel" id="p-chiral" role="tabpanel">
+    <div class="grid2">
+      <div class="card" style="background:transparent;border:0;padding:0">
+        <div class="eyebrow">The puzzle</div>
+        <h2>Left hand, right hand, one biology</h2>
+        <p class="lede">A carbon atom carrying four different groups can exist as two non-superimposable mirror images, the enantiomers. They share melting point, NMR and solubility, yet a chiral receptor, enzyme or ion channel tells them apart.</p>
+        <p>Life uses L-amino acids and D-sugars almost exclusively. For over a century chemists could not explain how such one-handedness (homochirality) arises, because ordinary reactions starting from achiral or racemic material give exactly 50:50 mixtures. The 2026 laureates found the two missing mechanisms: <b>non-linear effects</b>, where a small chiral bias is magnified by catalyst aggregation, and <b>asymmetric autocatalysis</b>, where a product copies its own handedness.</p>
+      </div>
+      <div class="figure">
+        <svg viewBox="0 0 400 230" role="img" aria-label="Two mirror-image tetrahedral carbons">
+          <line x1="200" y1="14" x2="200" y2="200" stroke="var(--muted)" stroke-dasharray="4 5"/>
+          <text x="200" y="222" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="var(--muted)">mirror</text>
+          <!-- left molecule -->
+          <g font-family="IBM Plex Sans" font-size="14" fill="var(--ink)">
+            <line x1="100" y1="110" x2="100" y2="40" stroke="var(--ink)" stroke-width="2"/>
+            <text x="100" y="32" text-anchor="middle">H</text>
+            <line x1="100" y1="110" x2="40" y2="140" stroke="var(--ink)" stroke-width="2"/>
+            <text x="22" y="148" fill="var(--bad)">OH</text>
+            <polygon points="100,110 158,138 154,146" fill="var(--r)"/>
+            <text x="160" y="160">CH<tspan baseline-shift="sub" font-size="10">3</tspan></text>
+            <line x1="100" y1="110" x2="120" y2="175" stroke="var(--ink)" stroke-width="2" stroke-dasharray="3 3"/>
+            <text x="108" y="194">Ar</text>
+            <circle cx="100" cy="110" r="6" fill="var(--r)"/>
+            <text x="64" y="98" font-family="IBM Plex Mono" font-size="12" fill="var(--r)">(R)</text>
+          </g>
+          <!-- right molecule (mirror) -->
+          <g font-family="IBM Plex Sans" font-size="14" fill="var(--ink)">
+            <line x1="300" y1="110" x2="300" y2="40" stroke="var(--ink)" stroke-width="2"/>
+            <text x="300" y="32" text-anchor="middle">H</text>
+            <line x1="300" y1="110" x2="360" y2="140" stroke="var(--ink)" stroke-width="2"/>
+            <text x="356" y="148" fill="var(--bad)">OH</text>
+            <polygon points="300,110 242,138 246,146" fill="var(--s)"/>
+            <text x="212" y="160">H<tspan baseline-shift="sub" font-size="10">3</tspan>C</text>
+            <line x1="300" y1="110" x2="280" y2="175" stroke="var(--ink)" stroke-width="2" stroke-dasharray="3 3"/>
+            <text x="274" y="194">Ar</text>
+            <circle cx="300" cy="110" r="6" fill="var(--s)"/>
+            <text x="316" y="98" font-family="IBM Plex Mono" font-size="12" fill="var(--s)">(S)</text>
+          </g>
+        </svg>
+        <div class="figcap">Wedge = toward you, dashes = away. Reflecting through the mirror swaps R and S; no rotation turns one into the other.</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="eyebrow">Measuring one-handedness</div>
+        <h3>Enantiomeric excess (ee)</h3>
+        <p class="mono" style="font-size:1rem">ee = ([R] &minus; [S]) / ([R] + [S]) &times; 100%</p>
+        <div class="ctrl">
+          <label for="erSlide">Fraction of R in sample <output id="erOut">75%</output></label>
+          <input type="range" id="erSlide" min="0" max="100" value="75">
+        </div>
+        <div class="meter" aria-hidden="true"><i class="mr" id="mR" style="width:75%"></i><i class="ms" id="mS" style="width:25%"></i></div>
+        <div class="readout"><div>ee<b id="eeOut">50% (R)</b></div><div>er (R:S)<b id="erRatio">75 : 25</b></div></div>
+        <p class="note">50:50 is racemic (ee = 0). A regulator sees the minor enantiomer as an impurity, so an API at 99.8% ee still carries 0.1% of its mirror image.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Why it matters in medicine</div>
+        <h3>Same formula, different drug</h3>
+        <div class="tablewrap"><table>
+          <tr><th>Drug</th><th>Marketed form</th><th>Note</th></tr>
+          <tr><td>Thalidomide</td><td>racemate (withdrawn, later re-approved)</td><td>Teratogenicity linked to the (S)-form; racemizes in vivo</td></tr>
+          <tr><td>Esomeprazole</td><td><span class="S">(S)</span> of omeprazole</td><td>Chiral switch from racemic omeprazole</td></tr>
+          <tr><td>Escitalopram</td><td><span class="S">(S)</span> of citalopram</td><td>Activity resides mainly in (S)</td></tr>
+          <tr><td>Levetiracetam</td><td><span class="S">(S)</span></td><td>Developed as single enantiomer</td></tr>
+          <tr><td>Sitagliptin</td><td><span class="R">(R)</span></td><td>Made by asymmetric hydrogenation, later biocatalytic transamination</td></tr>
+        </table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KAGAN -->
+  <section class="panel" id="p-kagan" role="tabpanel" hidden>
+    <div class="grid2">
+      <div style="display:grid;gap:14px;align-content:start">
+        <div class="eyebrow">Henri B. Kagan &middot; 1986</div>
+        <h2>When 50% ee in the catalyst gives 80% ee in the product</h2>
+        <p class="lede">Textbook logic says a catalyst at 50% ee should give a product at half its maximum ee. Kagan and co-workers tested this in 1986 and found it often fails. Plotting product ee against ligand ee gave curves, not straight lines.</p>
+        <p>The cause is aggregation. If the active catalyst contains two chiral ligands (Kagan's ML<sub>2</sub> model), three species form: two homochiral complexes and one heterochiral "meso" complex. When the meso complex is unusually stable and sluggish, it locks away the minor ligand. The remaining active catalyst is far purer than the ligand pool, so the product ee overshoots: a <b>positive non-linear effect</b>, or asymmetric amplification. When the meso complex is the more reactive one, product ee falls below the line: a <b>negative non-linear effect</b>.</p>
+      </div>
+      <div class="figure">
+        <svg viewBox="0 0 400 250" role="img" aria-label="ML2 model with homochiral and heterochiral complexes">
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--muted)"/></marker></defs>
+          <g font-family="IBM Plex Mono" font-size="12" text-anchor="middle">
+            <g class="pulse"><rect x="20" y="20" width="110" height="56" rx="12" fill="var(--r-soft)" stroke="var(--r)"/>
+            <text x="75" y="44" fill="var(--r)">M L<tspan baseline-shift="sub" font-size="9">R</tspan>L<tspan baseline-shift="sub" font-size="9">R</tspan></text><text x="75" y="62" fill="var(--ink)" font-size="10">active &middot; k</text></g>
+            <g><rect x="270" y="20" width="110" height="56" rx="12" fill="var(--s-soft)" stroke="var(--s)"/>
+            <text x="325" y="44" fill="var(--s)">M L<tspan baseline-shift="sub" font-size="9">S</tspan>L<tspan baseline-shift="sub" font-size="9">S</tspan></text><text x="325" y="62" fill="var(--ink)" font-size="10">active &middot; k</text></g>
+            <rect x="145" y="150" width="110" height="56" rx="12" fill="var(--surface2)" stroke="var(--muted)"/>
+            <text x="200" y="174" fill="var(--ink)">M L<tspan baseline-shift="sub" font-size="9">R</tspan>L<tspan baseline-shift="sub" font-size="9">S</tspan></text><text x="200" y="192" fill="var(--muted)" font-size="10">meso &middot; g&middot;k</text>
+            <path class="flow" d="M90 80 L170 146" stroke="var(--muted)" fill="none" marker-end="url(#ah)"/>
+            <path class="flow" d="M310 80 L230 146" stroke="var(--muted)" fill="none" marker-end="url(#ah)"/>
+            <text x="200" y="104" fill="var(--muted)" font-size="11">K = [RS]&sup2; / ([RR][SS])</text>
+            <text x="75" y="102" fill="var(--r)" font-size="10">gives R-product</text>
+            <text x="325" y="102" fill="var(--s)" font-size="10">gives S-product</text>
+            <text x="200" y="228" fill="var(--muted)" font-size="10">gives racemic product (or none)</text>
+          </g>
+        </svg>
+        <div class="figcap">Large K and small g: the meso complex acts as a reservoir for the minority ligand.</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="figure">
+        <svg id="nleChart" viewBox="0 0 380 290" role="img" aria-label="Product ee versus ligand ee"></svg>
+        <div class="figcap">Dashed line: linear (no NLE). Solid: Kagan ML<sub>2</sub> model with your parameters. y-axis normalised to the ee the pure catalyst gives.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Try the ML<sub>2</sub> model</div>
+        <div class="btns" id="nlePresets">
+          <button class="b" data-k="300" data-g="0.05">Strong (+)-NLE</button>
+          <button class="b" data-k="4" data-g="1">Linear</button>
+          <button class="b" data-k="40" data-g="2.5">(&minus;)-NLE</button>
+        </div>
+        <div class="ctrl"><label for="kSl">Meso stability K <output id="kOut"></output></label><input type="range" id="kSl" min="0" max="4" step="0.05" value="2.5"></div>
+        <div class="ctrl"><label for="gSl">Meso relative reactivity g <output id="gOut"></output></label><input type="range" id="gSl" min="0" max="3" step="0.05" value="0.1"></div>
+        <div class="ctrl"><label for="xSl">Ligand ee you load <output id="xOut"></output></label><input type="range" id="xSl" min="0" max="100" value="40"></div>
+        <div class="readout"><div>Linear prediction<b id="linOut"></b></div><div>Model product ee<b id="modOut"></b></div><div>Regime<b id="regOut"></b></div></div>
+        <p class="note">K = 4 is the purely statistical value. Equations follow Kagan's ML<sub>2</sub> treatment: ee<sub>prod</sub> = EE<sub>0</sub>&middot;([RR]&minus;[SS])/([RR]+[SS]+g[RS]).</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">The original 1986 study (Puchot, &hellip;, Kagan, J. Am. Chem. Soc.)</div>
+      <div class="tablewrap"><table>
+        <tr><th>Reaction</th><th>Chiral source</th><th>Observed</th></tr>
+        <tr><td>Sharpless asymmetric epoxidation of geraniol</td><td>Ti(OiPr)<sub>4</sub> / partially resolved diethyl tartrate</td><td><span class="pill pos">positive NLE</span></td></tr>
+        <tr><td>Sulfide to sulfoxide oxidation</td><td>Ti / diethyl tartrate (Kagan modification)</td><td><span class="pill neg">negative NLE</span></td></tr>
+        <tr><td>Hajos&ndash;Parrish intramolecular aldol</td><td>Partially resolved proline</td><td><span class="pill neg">negative NLE</span></td></tr>
+      </table></div>
+      <p class="note">Positive NLEs were soon found in many systems, notably Noyori's DAIB-catalysed dialkylzinc additions to aldehydes, the same reaction class Soai would turn autocatalytic.</p>
+    </div>
+  </section>
+
+  <!-- SOAI -->
+  <section class="panel" id="p-soai" role="tabpanel" hidden>
+    <div style="display:grid;gap:14px">
+      <div class="eyebrow">Kenso Soai &middot; Nature, 1995</div>
+      <h2>A molecule that makes more of itself, and more of its own hand</h2>
+      <p class="lede">Soai added diisopropylzinc to 2-substituted pyrimidine-5-carbaldehydes. The product, a pyrimidyl alkanol (as its zinc alkoxide), turned out to be a highly enantioselective catalyst for its own formation. Seeded with product of tiny ee, it generated new product of far higher ee, which in turn catalysed the next batch. Starting from about 0.00005% ee, three consecutive rounds reached above 99.5% ee.</p>
+    </div>
+
+    <div class="figure">
+      <svg viewBox="0 0 760 240" role="img" aria-label="Soai reaction scheme">
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--ink)"/></marker>
+        <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="var(--r)"/></marker></defs>
+        <g stroke="var(--ink)" stroke-width="2" fill="none" font-family="IBM Plex Sans" font-size="14">
+          <!-- aldehyde pyrimidine centred at 150,110 r=36: C2 at left, C5 at right -->
+          <polygon points="114,110 132,79 168,79 186,110 168,141 132,141"/>
+          <line x1="137" y1="85" x2="163" y2="85"/><line x1="137" y1="135" x2="163" y2="135"/><line x1="120" y1="110" x2="134" y2="86" stroke-width="0"/>
+          <line x1="114" y1="110" x2="78" y2="110"/><line x1="78" y1="106" x2="44" y2="106"/><line x1="78" y1="114" x2="44" y2="114"/><line x1="78" y1="110" x2="44" y2="110"/>
+          <line x1="186" y1="110" x2="214" y2="94"/><line x1="214" y1="94" x2="238" y2="110"/>
+          <line x1="216" y1="92" x2="216" y2="68"/><line x1="211" y1="93" x2="211" y2="69"/>
+        </g>
+        <g font-family="IBM Plex Sans" font-size="14" fill="var(--ink)">
+          <rect x="124" y="70" width="16" height="18" fill="var(--surface)"/><text x="125" y="84" font-weight="600">N</text>
+          <rect x="124" y="132" width="16" height="18" fill="var(--surface)"/><text x="125" y="146" font-weight="600">N</text>
+          <text x="6" y="115">tBu</text>
+          <text x="207" y="64">O</text><text x="240" y="115">H</text>
+          <text x="96" y="190" font-family="IBM Plex Mono" font-size="11" fill="var(--muted)">2-(tBu-ethynyl)pyrimidine-</text>
+          <text x="120" y="205" font-family="IBM Plex Mono" font-size="11" fill="var(--muted)">5-carbaldehyde</text>
+        </g>
+        <!-- arrow -->
+        <line x1="290" y1="110" x2="430" y2="110" stroke="var(--ink)" stroke-width="2" marker-end="url(#ah2)"/>
+        <text x="360" y="96" text-anchor="middle" font-family="IBM Plex Sans" font-size="13" fill="var(--ink)">iPr<tspan baseline-shift="sub" font-size="9">2</tspan>Zn, toluene</text>
+        <text x="360" y="130" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="var(--r)">product (cat.), low ee</text>
+        <text x="360" y="146" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="var(--muted)">then H&#8323;O&#8314; workup</text>
+        <!-- product -->
+        <g stroke="var(--ink)" stroke-width="2" fill="none">
+          <polygon points="524,110 542,79 578,79 596,110 578,141 542,141"/>
+          <line x1="547" y1="85" x2="573" y2="85"/><line x1="547" y1="135" x2="573" y2="135"/>
+          <line x1="524" y1="110" x2="488" y2="110"/><line x1="488" y1="106" x2="454" y2="106"/><line x1="488" y1="114" x2="454" y2="114"/><line x1="488" y1="110" x2="454" y2="110"/>
+          <line x1="596" y1="110" x2="626" y2="94"/>
+          <line x1="626" y1="94" x2="656" y2="110"/><line x1="656" y1="110" x2="686" y2="94"/><line x1="656" y1="110" x2="656" y2="142"/>
+        </g>
+        <polygon points="626,94 622,64 630,64" fill="var(--r)"/>
+        <g font-family="IBM Plex Sans" font-size="14" fill="var(--ink)">
+          <rect x="534" y="70" width="16" height="18" fill="var(--surface)"/><text x="535" y="84" font-weight="600">N</text>
+          <rect x="534" y="132" width="16" height="18" fill="var(--surface)"/><text x="535" y="146" font-weight="600">N</text>
+          <text x="416" y="115">tBu</text>
+          <text x="612" y="58" fill="var(--bad)">OH</text>
+          <text x="600" y="190" font-family="IBM Plex Mono" font-size="11" fill="var(--r)">(S)-pyrimidyl alkanol</text>
+          <text x="606" y="205" font-family="IBM Plex Mono" font-size="11" fill="var(--muted)">= its own catalyst</text>
+        </g>
+        <path class="flow" d="M640 214 C 600 238, 400 238, 362 156" stroke="var(--r)" stroke-width="2" fill="none" marker-end="url(#ah3)"/>
+      </svg>
+      <div class="figcap">The 2-alkynylpyrimidine version gives the strongest amplification. The blue loop: product (as Zn alkoxide) returns as catalyst. Which product hand forms depends on which hand seeds the reaction; the S label here is illustrative.</div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="eyebrow">Simulate consecutive rounds</div>
+        <h3>Asymmetric amplification, round by round</h3>
+        <div class="ctrl"><label for="e0Sl">Starting ee of seed <output id="e0Out"></output></label><input type="range" id="e0Sl" min="-7" max="-1" step="0.1" value="-6.3"></div>
+        <div class="ctrl"><label for="ksSl">Heterochiral (meso) aggregate stability K <output id="ksOut"></output></label><input type="range" id="ksSl" min="1" max="5" step="0.1" value="3"></div>
+        <div class="ctrl"><label for="bgSl">Uncatalysed racemic background <output id="bgOut"></output></label><input type="range" id="bgSl" min="-9" max="-2" step="0.1" value="-7"></div>
+        <div class="btns"><button class="b primary" id="runRounds">Run 5 rounds</button></div>
+        <canvas id="flask" aria-label="Animated product molecules, blue R and amber S"></canvas>
+        <p class="note">Each round: 20 mol% of the previous product seeds fresh aldehyde. Model: product forms dimeric Zn aggregates in fast equilibrium; only homochiral ones catalyse.</p>
+      </div>
+      <div class="figure">
+        <svg id="roundChart" viewBox="0 0 380 300" role="img" aria-label="ee after each round"></svg>
+        <div class="figcap">Product ee after each round. With default settings the model reproduces the reported pattern: trace ee becomes &gt;99% within three to four rounds.</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="eyebrow">Absolute asymmetric synthesis</div>
+        <h3>Start with nothing chiral, end with one hand</h3>
+        <p>Run the Soai reaction with no chiral seed at all and each flask still ends highly enriched, sometimes R, sometimes S. The tiny statistical imbalance from the first racemic background molecules is amplified. Over many flasks the outcomes split roughly evenly: spontaneous mirror-symmetry breaking.</p>
+        <div class="btns"><button class="b primary" id="runFlasks">Run 60 flasks from zero ee</button></div>
+        <div class="readout"><div>R-major flasks<b id="nR" class="R">&ndash;</b></div><div>S-major flasks<b id="nS" class="S">&ndash;</b></div></div>
+      </div>
+      <div class="figure">
+        <svg id="histChart" viewBox="0 0 380 240" role="img" aria-label="Distribution of final ee"></svg>
+        <div class="figcap">Histogram of final ee across flasks. Bimodal: almost none stay near zero.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">What can tip the balance</div>
+      <div class="grid3">
+        <div><h3>Physical chirality</h3><p class="note">Circularly polarised light, and chiral crystals of quartz or sodium chlorate, have been reported to decide which hand wins.</p></div>
+        <div><h3>Isotope chirality</h3><p class="note">Compounds chiral only because of H/D or <sup>12</sup>C/<sup>13</sup>C substitution have been reported to trigger the reaction: an extraordinarily sensitive chirality detector.</p></div>
+        <div><h3>Mechanism, still argued</h3><p class="note">Recent work proposes a homochiral tetrameric Zn alkoxide (Denmark, Nat. Chem. 2020) and transient hemiacetal zinc complexes (Trapp, Nat. Commun. 2025) as key catalytic species.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHARMA -->
+  <section class="panel" id="p-pharma" role="tabpanel" hidden>
+    <div style="display:grid;gap:14px">
+      <div class="eyebrow">From origin-of-life puzzle to plant floor</div>
+      <h2>What the prize means for API process chemistry</h2>
+      <p class="lede">Most new small-molecule drugs are single enantiomers, and the minor enantiomer is controlled as an impurity. Non-linear effects and autocatalysis change how chemists set ligand specifications, diagnose catalysts, and think about ee upgrade.</p>
+    </div>
+    <div class="grid2">
+      <div class="card"><span class="pill pos">cost &amp; supply</span><h3>Ligand specifications can be set rationally</h3><p>With a positive NLE, a ligand at 90&ndash;95% ee can deliver product ee close to the 100% ligand result, so a cheaper or less rigorously resolved ligand lot may be acceptable. With a negative NLE, ligand optical purity becomes a critical material attribute. The <b>Ligand-ee planner</b> tab turns this into numbers.</p></div>
+      <div class="card"><span class="pill">mechanism</span><h3>A five-point NLE plot is a cheap mechanistic probe</h3><p>Running the reaction at 0, 25, 50, 75 and 100% ligand ee reveals whether the active catalyst is a monomer or an aggregate. That informs scale-up risks: concentration sensitivity, induction periods, sensitivity to water or additives that break aggregates, and catalyst loading choices.</p></div>
+      <div class="card"><span class="pill">quality</span><h3>Trace chirality can steer outcomes</h3><p>Soai's reaction shows that a vanishingly small chiral bias can dominate the final result when a process amplifies. For amplifying or autocatalytic steps, control strategies should consider chiral contaminants, seeds from previous batches in shared equipment, and enantiomeric purity of recycled streams.</p></div>
+      <div class="card"><span class="pill">ee upgrade</span><h3>Amplification as a design principle</h3><p>Asymmetric amplification sits alongside crystallisation-based ee upgrades (preferential crystallisation, attrition-enhanced deracemisation) as ways to turn modest selectivity into &gt;99% ee. Autocatalytic amplification also inspires ultra-sensitive chiral sensing for enantiomeric impurity work.</p></div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Where it fits in the regulatory picture</div>
+      <div class="tablewrap"><table>
+        <tr><th>Expectation</th><th>Link to this year's prize</th></tr>
+        <tr><td>US FDA 1992 policy on stereoisomeric drugs: characterise each enantiomer, justify racemates</td><td>Drove demand for robust asymmetric routes; NLE studies help prove catalyst robustness</td></tr>
+        <tr><td>ICH Q6A: the opposite enantiomer controlled as an impurity with a chiral assay</td><td>Ligand ee spec directly sets the enantiomeric impurity level in product</td></tr>
+        <tr><td>ICH Q8/Q11: critical material attributes and design space</td><td>An NLE curve is a ready-made data set for the ligand ee CMA and its proven acceptable range</td></tr>
+      </table></div>
+    </div>
+    <p class="note">Asymmetric catalysis itself was honoured in 2001 (Knowles, Noyori, Sharpless) and 2021 (List, MacMillan). The 2026 prize rewards the phenomena that explain how chiral information propagates and grows.</p>
+  </section>
+
+  <!-- PLANNER -->
+  <section class="panel" id="p-planner" role="tabpanel" hidden>
+    <div style="display:grid;gap:14px">
+      <div class="eyebrow">Process tool</div>
+      <h2>Minimum ligand ee for a target product ee</h2>
+      <p class="lede">Pick a catalyst behaviour (or fit K and g to your own five-point NLE data), set the ee your pure catalyst gives and the product ee you must reach. The planner inverts Kagan's ML<sub>2</sub> model.</p>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <div class="ctrl"><label for="plPreset">Catalyst behaviour</label>
+          <select id="plPreset">
+            <option value="300,0.05">Strong positive NLE (reservoir effect)</option>
+            <option value="40,0.4" selected>Moderate positive NLE</option>
+            <option value="4,1">Linear</option>
+            <option value="40,2.5">Negative NLE</option>
+          </select></div>
+        <div class="ctrl"><label for="plK">K <output id="plKOut"></output></label><input type="range" id="plK" min="0" max="4" step="0.05" value="1.6"></div>
+        <div class="ctrl"><label for="plG">g <output id="plGOut"></output></label><input type="range" id="plG" min="0" max="3" step="0.05" value="0.4"></div>
+        <div class="ctrl"><label for="plE0">ee with enantiopure ligand (EE<sub>0</sub>) <output id="plE0Out"></output></label><input type="range" id="plE0" min="80" max="99.9" step="0.1" value="98"></div>
+        <div class="ctrl"><label for="plT">Target product ee <output id="plTOut"></output></label><input type="range" id="plT" min="50" max="99.9" step="0.1" value="95"></div>
+        <div class="readout"><div>Minimum ligand ee<b id="plRes"></b></div><div>Product ee at 99% ligand<b id="pl99"></b></div></div>
+        <p class="note" id="plMsg"></p>
+      </div>
+      <div class="figure">
+        <svg id="plChart" viewBox="0 0 380 290" role="img" aria-label="Planner curve"></svg>
+        <div class="figcap">Product ee (absolute) versus ligand ee. Gold marker: minimum ligand ee meeting the target. Illustrative model; confirm with experimental NLE data before setting specifications.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="panel" id="p-time" role="tabpanel" hidden>
+    <div class="grid2">
+      <div style="display:grid;gap:16px;align-content:start">
+        <div class="eyebrow">How we got here</div>
+        <div class="tl">
+          <div class="tl-item"><span class="yr">1848</span><b>Pasteur separates tartrate crystals</b><span class="note">First demonstration of molecular handedness.</span></div>
+          <div class="tl-item"><span class="yr">1953</span><b>Frank's theoretical model</b><span class="note">Proposes that autocatalysis plus mutual inhibition could create homochirality.</span></div>
+          <div class="tl-item"><span class="yr">1971</span><b>Kagan's DIOP</b><span class="note">C<sub>2</sub>-symmetric diphosphine ligand; a template for chiral ligand design.</span></div>
+          <div class="tl-item key"><span class="yr">1986</span><b>Kagan reports non-linear effects</b><span class="note">Product ee not proportional to auxiliary ee; ML<sub>n</sub> models follow.</span></div>
+          <div class="tl-item key"><span class="yr">1995</span><b>Soai reports asymmetric autocatalysis</b><span class="note">Pyrimidyl alkanol amplifies its own ee (Nature).</span></div>
+          <div class="tl-item"><span class="yr">2001</span><b>Nobel: asymmetric hydrogenation and oxidation</b><span class="note">Knowles, Noyori, Sharpless.</span></div>
+          <div class="tl-item"><span class="yr">2020&ndash;2025</span><b>Mechanism studies</b><span class="note">Tetramer and hemiacetal-complex models of the Soai catalyst.</span></div>
+          <div class="tl-item"><span class="yr">2021</span><b>Nobel: asymmetric organocatalysis</b><span class="note">List, MacMillan.</span></div>
+          <div class="tl-item key"><span class="yr">2026</span><b>Nobel: Kagan and Soai</b><span class="note">Non-linear effects and autocatalysis in asymmetric synthesis.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Sources</div>
+        <ul class="sources">
+          <li><a href="https://www.nobelprize.org/prizes/chemistry/2026/press-release/" target="_blank" rel="noopener">Nobel Prize press release, 7 Oct 2026</a></li>
+          <li><a href="https://www.npr.org/2026/10/07/g-s1-146849/nobel-prize-chemistry" target="_blank" rel="noopener">NPR / AP report</a></li>
+          <li><a href="https://cen.acs.org/people/nobel-prize/chemistry-nobel-chirality-kagan-soai/104/web/2026/10" target="_blank" rel="noopener">C&amp;EN: Chemistry Nobel for chiral chemistry advances</a></li>
+          <li><a href="https://www.britannica.com/topic/2026-Nobel-Prize-winners" target="_blank" rel="noopener">Britannica: 2026 Nobel Prize winners</a></li>
+          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7117993/" target="_blank" rel="noopener">Athavale, Denmark et al., Nat. Chem. 2020 (Soai mechanism)</a></li>
+          <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12332059/" target="_blank" rel="noopener">M&ouml;hler, Trapp et al., Nat. Commun. 2025 (hemiacetal intermediates)</a></li>
+        </ul>
+        <p class="note">Primary papers: C. Puchot, &hellip; H. B. Kagan, J. Am. Chem. Soc. 1986, 108, 2353; K. Soai, T. Shibata, H. Morioka, K. Choji, Nature 1995, 378, 767. Simulations on this page are simplified teaching models, not fits to published data.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const $ = id => document.getElementById(id);
+const NS = 'http://www.w3.org/2000/svg';
+
+/* ---------- tabs ---------- */
+const tabs=[...document.querySelectorAll('.tab')];
+function show(id, push){
+  tabs.forEach(t=>t.setAttribute('aria-selected', t.dataset.p===id));
+  document.querySelectorAll('.panel').forEach(p=>{
+    const on = p.id==='p-'+id; p.hidden=!on;
+    if(on){p.classList.remove('enter'); void p.offsetWidth; p.classList.add('enter');}
+  });
+  if(push){ try{history.replaceState(null,'','#'+id)}catch(e){} }
+  try{localStorage.setItem('nobel26tab',id)}catch(e){}
+  if(id==='soai') drawFlask();
+}
+tabs.forEach(t=>t.addEventListener('click',()=>show(t.dataset.p,true)));
+let start = (location.hash||'').slice(1);
+if(!tabs.some(t=>t.dataset.p===start)){ try{start=localStorage.getItem('nobel26tab')}catch(e){} }
+if(tabs.some(t=>t.dataset.p===start)) show(start,false);
+
+/* ---------- models ---------- */
+function dimers(R,S,K){ // 2a+c=R, 2b+c=S, c^2 = K a b
+  let lo=0, hi=Math.min(R,S);
+  for(let i=0;i<60;i++){const c=(lo+hi)/2; const f=c*c-K*(R-c)*(S-c)/4; if(f>0) hi=c; else lo=c;}
+  const c=(lo+hi)/2; return [(R-c)/2,(S-c)/2,c];
+}
+function eeProd(ee,K,g){ // normalised to EE0
+  if(ee>=1) return 1;
+  const [a,b,c]=dimers((1+ee)/2,(1-ee)/2,K);
+  const d=a+b+g*c; return d>0?(a-b)/d:0;
+}
+function soaiRound(ee,cat,K,bg,trace){
+  let R=cat*(1+ee)/2, S=cat*(1-ee)/2; const n=300, d=1/n;
+  for(let i=0;i<n;i++){
+    const [a,b]=dimers(R,S,K); const wR=a+bg, wS=b+bg, w=wR+wS;
+    R+=d*wR/w; S+=d*wS/w;
+    if(trace && i%10===0) trace.push(R/(R+S));
+  }
+  return (R-S)/(R+S);
+}
+
+/* ---------- chart helper ---------- */
+function clear(svg){while(svg.firstChild) svg.removeChild(svg.firstChild)}
+function el(svg,tag,attrs,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;svg.appendChild(e);return e}
+function axes(svg,W,H,P,xl,yl,ymax){
+  const X=v=>P.l+v/100*(W-P.l-P.r), Y=v=>H-P.b-v/ymax*(H-P.t-P.b);
+  for(let v=0;v<=100;v+=25){
+    el(svg,'line',{x1:X(v),x2:X(v),y1:P.t,y2:H-P.b,stroke:'var(--line)'});
+    el(svg,'text',{x:X(v),y:H-P.b+16,'text-anchor':'middle','font-size':10,'font-family':'IBM Plex Mono',fill:'var(--muted)'},v);
+  }
+  for(let v=0;v<=ymax;v+=ymax/4){
+    el(svg,'line',{x1:P.l,x2:W-P.r,y1:Y(v),y2:Y(v),stroke:'var(--line)'});
+    el(svg,'text',{x:P.l-6,y:Y(v)+3,'text-anchor':'end','font-size':10,'font-family':'IBM Plex Mono',fill:'var(--muted)'},Math.round(v));
+  }
+  el(svg,'text',{x:(P.l+W-P.r)/2,y:H-6,'text-anchor':'middle','font-size':11,fill:'var(--muted)','font-family':'IBM Plex Sans'},xl);
+  const t=el(svg,'text',{x:12,y:(P.t+H-P.b)/2,'text-anchor':'middle','font-size':11,fill:'var(--muted)','font-family':'IBM Plex Sans',transform:`rotate(-90 12 ${(P.t+H-P.b)/2})`},yl);
+  return {X,Y};
+}
+function animatePath(p){
+  if(reduce) return; const L=p.getTotalLength(); p.style.strokeDasharray=L; p.style.strokeDashoffset=L;
+  p.getBoundingClientRect(); p.style.transition='stroke-dashoffset .8s ease'; p.style.strokeDashoffset=0;
+}
+
+/* ---------- ee meter ---------- */
+function upEr(){const r=+$('erSlide').value; $('erOut').textContent=r+'%'; $('mR').style.width=r+'%'; $('mS').style.width=(100-r)+'%';
+  const ee=2*r-100; $('eeOut').textContent=Math.abs(ee)+'% '+(ee>0?'(R)':ee<0?'(S)':'racemic'); $('erRatio').textContent=r+' : '+(100-r);}
+$('erSlide').addEventListener('input',upEr); upEr();
+
+/* ---------- Kagan chart ---------- */
+let lastKey='';
+function drawNLE(){
+  const K=Math.pow(10,+$('kSl').value), g=+$('gSl').value, x=+$('xSl').value/100;
+  $('kOut').textContent=K<10?K.toFixed(1):Math.round(K); $('gOut').textContent=g.toFixed(2); $('xOut').textContent=Math.round(x*100)+'%';
+  const svg=$('nleChart'); clear(svg); const W=380,H=290,P={l:44,r:14,t:14,b:40};
+  const {X,Y}=axes(svg,W,H,P,'ligand ee (%)','product ee / EE0 (%)',100);
+  el(svg,'line',{x1:X(0),y1:Y(0),x2:X(100),y2:Y(100),stroke:'var(--muted)','stroke-dasharray':'5 5'});
+  let d=''; for(let i=0;i<=100;i++){const v=eeProd(i/100,K,g)*100; d+=(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1);}
+  const p=el(svg,'path',{d,fill:'none',stroke:'var(--r)','stroke-width':3,'stroke-linecap':'round'});
+  const key=K.toFixed(2)+g; if(key!==lastKey){animatePath(p); lastKey=key;}
+  const yv=eeProd(x,K,g)*100;
+  el(svg,'line',{x1:X(x*100),x2:X(x*100),y1:Y(0),y2:Y(yv),stroke:'var(--gold)','stroke-dasharray':'3 3'});
+  el(svg,'circle',{cx:X(x*100),cy:Y(yv),r:6,fill:'var(--gold)',stroke:'var(--surface)','stroke-width':2});
+  $('linOut').textContent=(x*100).toFixed(0)+'%'; $('modOut').textContent=yv.toFixed(1)+'%';
+  const diff=yv-x*100; const r=$('regOut');
+  r.textContent=Math.abs(diff)<1.5?'linear':diff>0?'(+)-NLE':'(−)-NLE';
+  r.style.color=Math.abs(diff)<1.5?'var(--muted)':diff>0?'var(--ok)':'var(--bad)';
+}
+['kSl','gSl','xSl'].forEach(i=>$(i).addEventListener('input',drawNLE));
+document.querySelectorAll('#nlePresets button').forEach(b=>b.addEventListener('click',()=>{$('kSl').value=Math.log10(+b.dataset.k);$('gSl').value=b.dataset.g;drawNLE();}));
+drawNLE();
+
+/* ---------- Soai rounds ---------- */
+function soaiLabels(){
+  const e0=Math.pow(10,+$('e0Sl').value)*100; $('e0Out').textContent=(e0<0.001?e0.toExponential(1):e0.toPrecision(2))+'%';
+  $('ksOut').textContent=Math.round(Math.pow(10,+$('ksSl').value)); $('bgOut').textContent='1e'+(+$('bgSl').value).toFixed(1);
+}
+let rounds=[];
+function computeRounds(){
+  const K=Math.pow(10,+$('ksSl').value), bg=Math.pow(10,+$('bgSl').value);
+  let ee=Math.pow(10,+$('e0Sl').value); rounds=[{ee,trace:[(1+ee)/2]}];
+  for(let r=0;r<5;r++){const trace=[]; ee=soaiRound(ee,0.2,K,bg,trace); rounds.push({ee,trace});}
+}
+function drawRounds(upto){
+  const svg=$('roundChart'); clear(svg); const W=380,H=300,P={l:44,r:14,t:20,b:40};
+  const bw=(W-P.l-P.r)/6;
+  for(let v=0;v<=100;v+=25){const y=H-P.b-v/100*(H-P.t-P.b);
+    el(svg,'line',{x1:P.l,x2:W-P.r,y1:y,y2:y,stroke:'var(--line)'});
+    el(svg,'text',{x:P.l-6,y:y+3,'text-anchor':'end','font-size':10,'font-family':'IBM Plex Mono',fill:'var(--muted)'},v);}
+  el(svg,'text',{x:12,y:(H)/2,'text-anchor':'middle','font-size':11,fill:'var(--muted)',transform:`rotate(-90 12 ${H/2})`},'product ee (%)');
+  rounds.forEach((r,i)=>{
+    const x=P.l+i*bw+bw*0.18, w=bw*0.64, v=i<=upto?r.ee*100:0, h=v/100*(H-P.t-P.b);
+    const rect=el(svg,'rect',{x,y:H-P.b-h,width:w,height:Math.max(h,1.5),rx:4,fill:i===0?'var(--muted)':'var(--r)'});
+    if(!reduce){rect.style.transition='all .5s'}
+    el(svg,'text',{x:x+w/2,y:H-P.b+16,'text-anchor':'middle','font-size':10,'font-family':'IBM Plex Mono',fill:'var(--muted)'},i===0?'seed':'R'+i);
+    if(i<=upto){const lab=v<0.01?v.toExponential(0):v<10?v.toPrecision(2):v.toFixed(v>99?2:1);
+      el(svg,'text',{x:x+w/2,y:H-P.b-h-6,'text-anchor':'middle','font-size':10,'font-family':'IBM Plex Mono',fill:'var(--ink)'},lab+'%');}
+  });
+}
+
+/* flask particles */
+const fl=$('flask'); let parts=[];
+function sizeCanvas(c){const dpr=Math.min(devicePixelRatio||1,2); const r=c.getBoundingClientRect(); if(!r.width) return null; c.width=r.width*dpr; c.height=r.height*dpr; const ctx=c.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0); return {ctx,w:r.width,h:r.height};}
+function drawFlask(){
+  const s=sizeCanvas(fl); if(!s) return; const {ctx,w,h}=s;
+  ctx.clearRect(0,0,w,h); const cR=css('--r'), cS=css('--s');
+  for(const p of parts){ctx.beginPath();ctx.arc(p.x*w,p.y*h,3.2,0,7);ctx.fillStyle=p.R?cR:cS;ctx.fill();}
+  ctx.fillStyle=css('--muted'); ctx.font='500 11px IBM Plex Mono, monospace';
+  const nR=parts.filter(p=>p.R).length; ctx.fillText(parts.length?`R ${nR}  :  S ${parts.length-nR}`:'press Run', 10, 18);
+}
+function seedParts(fracR,n){parts=[];for(let i=0;i<n;i++)parts.push({x:.04+Math.random()*.92,y:.15+Math.random()*.8,R:Math.random()<fracR});}
+let running=false;
+function runRounds(){
+  if(running) return; running=true; computeRounds();
+  seedParts((1+rounds[0].ee)/2,120); drawFlask(); drawRounds(0);
+  let i=1; const step=()=>{
+    if(i>=rounds.length){running=false;return}
+    const tr=rounds[i].trace; let j=0;
+    const tick=()=>{
+      if(j<tr.length){
+        for(let k=0;k<6;k++) parts.push({x:.04+Math.random()*.92,y:.15+Math.random()*.8,R:Math.random()<tr[j]});
+        if(parts.length>650) parts.splice(0,parts.length-650);
+        drawFlask(); j+= reduce? tr.length : 1; requestAnimationFrame(tick);
+      } else { drawRounds(i); i++; setTimeout(step, reduce?0:250); }
+    };
+    tick();
+  };
+  setTimeout(step, reduce?0:300);
+}
+['e0Sl','ksSl','bgSl'].forEach(id=>$(id).addEventListener('input',()=>{soaiLabels();computeRounds();drawRounds(5)}));
+$('runRounds').addEventListener('click',runRounds);
+soaiLabels(); computeRounds(); drawRounds(5);
+seedParts((1+rounds[5].ee)/2,300);
+
+/* symmetry breaking */
+function gaussian(){let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+function drawHist(vals){
+  const svg=$('histChart'); clear(svg); const W=380,H=240,P={l:36,r:12,t:14,b:38}; const bins=new Array(20).fill(0);
+  vals.forEach(v=>{let k=Math.floor((v+100)/10); if(k>19)k=19; if(k<0)k=0; bins[k]++;});
+  const mx=Math.max(4,...bins); const bw=(W-P.l-P.r)/20;
+  for(let t=0;t<=mx;t+=Math.ceil(mx/4)){const y=H-P.b-t/mx*(H-P.t-P.b); el(svg,'line',{x1:P.l,x2:W-P.r,y1:y,y2:y,stroke:'var(--line)'}); el(svg,'text',{x:P.l-6,y:y+3,'text-anchor':'end','font-size':10,'font-family':'IBM Plex Mono',fill:'var(--muted)'},t);}
+  bins.forEach((n,i)=>{const h=n/mx*(H-P.t-P.b); el(svg,'rect',{x:P.l+i*bw+1,y:H-P.b-h,width:bw-2,height:h,rx:2,fill:i<10?'var(--s)':'var(--r)'});});
+  [-100,-50,0,50,100].forEach(v=>el(svg,'text',{x:P.l+(v+100)/200*(W-P.l-P.r),y:H-P.b+16,'text-anchor':'middle','font-size':10,'font-family':'IBM Plex Mono',fill:'var(--muted)'},v));
+  el(svg,'text',{x:(W)/2,y:H-6,'text-anchor':'middle','font-size':11,fill:'var(--muted)'},'final ee (%)   S  ←  →  R');
+  if(!vals.length) el(svg,'text',{x:W/2,y:H/2,'text-anchor':'middle','font-size':12,fill:'var(--muted)'},'Run the flasks to fill this chart');
+}
+function runFlasks(){
+  const K=Math.pow(10,+$('ksSl').value); const vals=[]; let nR=0,nS=0;
+  for(let f=0;f<60;f++){
+    let ee=gaussian()/Math.sqrt(2000); // statistical imbalance of first background molecules
+    for(let r=0;r<3;r++) ee=soaiRound(ee,0.2,K,1e-7);
+    vals.push(ee*100); ee>0?nR++:nS++;
+  }
+  $('nR').textContent=nR; $('nS').textContent=nS; drawHist(vals);
+}
+$('runFlasks').addEventListener('click',runFlasks);
+drawHist([]);
+
+/* ---------- planner ---------- */
+function plan(){
+  const K=Math.pow(10,+$('plK').value), g=+$('plG').value, E0=+$('plE0').value/100, T=+$('plT').value/100;
+  $('plKOut').textContent=K<10?K.toFixed(1):Math.round(K); $('plGOut').textContent=g.toFixed(2);
+  $('plE0Out').textContent=(E0*100).toFixed(1)+'%'; $('plTOut').textContent=(T*100).toFixed(1)+'%';
+  const f=x=>E0*eeProd(x,K,g);
+  let res=null;
+  if(f(1)>=T){let lo=0,hi=1;for(let i=0;i<50;i++){const m=(lo+hi)/2; if(f(m)>=T) hi=m; else lo=m;} res=hi;}
+  $('plRes').textContent=res==null?'not reachable':(res*100).toFixed(1)+'%';
+  $('plRes').style.color=res==null?'var(--bad)':'var(--ink)';
+  $('pl99').textContent=(f(0.99)*100).toFixed(1)+'%';
+  const lin=T/E0;
+  $('plMsg').textContent=res==null?'Even enantiopure ligand cannot reach this target. Improve EE0 (catalyst, temperature, solvent) or plan an ee upgrade by crystallisation.'
+    : `A linear catalyst would need ${(lin*100).toFixed(1)}% ligand ee. ${res<lin-0.005?'The positive NLE relaxes your ligand specification.':res>lin+0.005?'The negative NLE tightens your ligand specification.':'No meaningful NLE benefit.'}`;
+  const svg=$('plChart'); clear(svg); const W=380,H=290,P={l:44,r:14,t:14,b:40};
+  const {X,Y}=axes(svg,W,H,P,'ligand ee (%)','product ee (%)',100);
+  el(svg,'line',{x1:X(0),y1:Y(T*100),x2:X(100),y2:Y(T*100),stroke:'var(--bad)','stroke-dasharray':'4 4'});
+  el(svg,'text',{x:X(2),y:Y(T*100)-5,'font-size':10,'font-family':'IBM Plex Mono',fill:'var(--bad)'},'target');
+  el(svg,'line',{x1:X(0),y1:Y(0),x2:X(100),y2:Y(E0*100),stroke:'var(--muted)','stroke-dasharray':'5 5'});
+  let d='';for(let i=0;i<=100;i++){d+=(i?'L':'M')+X(i).toFixed(1)+' '+Y(f(i/100)*100).toFixed(1);}
+  el(svg,'path',{d,fill:'none',stroke:'var(--r)','stroke-width':3});
+  if(res!=null){el(svg,'line',{x1:X(res*100),x2:X(res*100),y1:Y(0),y2:Y(T*100),stroke:'var(--gold)','stroke-dasharray':'3 3'});
+    el(svg,'circle',{cx:X(res*100),cy:Y(T*100),r:6,fill:'var(--gold)',stroke:'var(--surface)','stroke-width':2});}
+}
+$('plPreset').addEventListener('change',e=>{const [k,g]=e.target.value.split(',').map(Number);$('plK').value=Math.log10(k);$('plG').value=g;plan();});
+['plK','plG','plE0','plT'].forEach(id=>$(id).addEventListener('input',plan));
+plan();
+
+/* ---------- hero: rotating chiral centre and its mirror image ---------- */
+const hero=$('hero'); let hs=null, t0=performance.now();
+const atoms=[ // tetrahedral positions
+  {v:[0,1,0], c:'--muted', r:9, l:'H'},
+  {v:[0.943,-0.333,0], c:'--bad', r:13, l:'OH'},
+  {v:[-0.471,-0.333,0.816], c:'--ink', r:12, l:'CH3'},
+  {v:[-0.471,-0.333,-0.816], c:'--gold', r:15, l:'Ar'}];
+function frame(now){
+  if(!hs) hs=sizeCanvas(hero); if(!hs){requestAnimationFrame(frame);return}
+  const {ctx,w,h}=hs; ctx.clearRect(0,0,w,h);
+  const t=reduce?0.6:(now-t0)/2600, tilt=0.35;
+  const cx1=w*0.26, cx2=w*0.74, cy=h*0.52, sc=Math.min(w*0.17,h*0.34);
+  // mirror
+  const gr=ctx.createLinearGradient(w/2-4,0,w/2+4,0); gr.addColorStop(0,'transparent'); gr.addColorStop(.5,css('--line')); gr.addColorStop(1,'transparent');
+  ctx.fillStyle=gr; ctx.fillRect(w/2-6,14,12,h-28);
+  const sh=((now/18)%(h+80))-40; if(!reduce){ctx.fillStyle=css('--r-soft');ctx.fillRect(w/2-1,sh,2,40);}
+  const proj=a=>{let [x,y,z]=a.v; const c=Math.cos(t),s=Math.sin(t); let X=x*c+z*s, Z=-x*s+z*c;
+    const ct=Math.cos(tilt),st=Math.sin(tilt); let Y=y*ct-Z*st; Z=y*st+Z*ct; return {X,Y,Z,a};};
+  const P=atoms.map(proj).sort((p,q)=>p.Z-q.Z);
+  [[cx1,1,'--r'],[cx2,-1,'--s']].forEach(([cx,m,col])=>{
+    const pts=P.map(p=>({x:cx+m*(p.X-(0))*sc*(m===1?1:1),y:cy-p.Y*sc,z:p.Z,a:p.a}));
+    // fix mirror: right copy reflects left screen-x about the mirror
+    if(m===-1) pts.forEach(p=>{p.x=w-(cx1+(p.x-cx2)*-1)});
+    const back=pts.filter(p=>p.z<0), front=pts.filter(p=>p.z>=0);
+    const C={x:m===1?cx1:w-cx1,y:cy};
+    const bond=p=>{ctx.beginPath();ctx.moveTo(C.x,C.y);ctx.lineTo(p.x,p.y);ctx.strokeStyle=css('--muted');ctx.lineWidth=2.5;ctx.stroke();};
+    const ball=p=>{const r=p.a.r*(1+p.z*0.18);ctx.beginPath();ctx.arc(p.x,p.y,r,0,7);ctx.fillStyle=css(p.a.c);ctx.fill();
+      ctx.fillStyle=css('--surface');ctx.font='600 9px IBM Plex Sans, sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      if(p.a.l.length<3) ctx.fillText(p.a.l,p.x,p.y+0.5);};
+    back.forEach(bond); back.forEach(ball);
+    ctx.beginPath();ctx.arc(C.x,C.y,10,0,7);ctx.fillStyle=css(col);ctx.fill();
+    front.forEach(bond); front.forEach(ball);
+  });
+  if(!reduce) requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+addEventListener('resize',()=>{hs=null; if(reduce) requestAnimationFrame(frame); drawFlask();});
+matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',()=>{drawFlask(); if(reduce) requestAnimationFrame(frame);});
+drawFlask();
+})();
+</script>
+
+</body></html>
